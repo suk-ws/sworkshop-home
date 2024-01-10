@@ -1,0 +1,48 @@
+/******************************************************************************
+ ##############################################################################
+ #####                                                                    #####
+ #####   Markdown StyleSheet of ui design BreadCard                       #####
+ #####                                                                    #####
+ #####     !! use it in GLOBAL not in SCOPED                              #####
+ #####     -- core: theme: dark                                           #####
+ #####                                                                    #####
+ #####     @author: Sukazyo Workshop                                      #####
+ #####     @version： 2.0                                                 #####
+ #####                                                                    #####
+ ##############################################################################
+ ******************************************************************************/
+
+:root {
+	
+	--bcm-color-page-background: #212526;
+	
+	--bcm-color-font-base: #f1f0ff;
+	--bcm-color-font-base-link: #f5848e;
+	--bcm-color-font-base-link-hover: #e84b58;
+	--bcm-color-font-base-link-visited: #f59784;
+	--bcm-color-font-base-link-visited-hover: #f54d4d;
+	--bcm-color-font-base-link-focus-bg: #9e739a3d;
+	--bcm-color-font-base-mark: #65b12a;
+	--bcm-color-font-base-mark-bg: #648c758a;
+	
+	--bcm-color-blockquote-focus: var(--bcm-color-seperator);
+	--bcm-color-blockquote-foreground: #928e96;
+	
+	--bcm-color-list-item-marker-std: #928e96;
+	
+	--bcm-color-table-background: #2d3134;
+	--bcm-color-table-head-background: #d39292;
+	--bcm-color-table-head-foreground: #484545;
+	/*--bcm-color-table-foot-background: #e7eef7; !* not darkred yet *!*/
+	/*--bcm-color-table-foot-foreground: #9dabba; !* not darkred yet *!*/
+	
+	--bcm-color-code-inline-background: #353537;
+	--bcm-color-codeblock-background: #2d2a2d;
+	/*--bcm-color-codeblock-foreground: aliceblue;*/
+	
+	--bcm-color-keyboard-background: #efb2bc;
+	--bcm-color-keyboard-foreground: #5b3333;
+	
+	--bcm-color-seperator: #4b4849;
+	
+}

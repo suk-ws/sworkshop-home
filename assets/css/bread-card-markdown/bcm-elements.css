@@ -1,0 +1,234 @@
+/******************************************************************************
+ ##############################################################################
+ #####                                                                    #####
+ #####   Markdown StyleSheet of ui design BreadCard                       #####
+ #####                                                                    #####
+ #####     -- core: the article element                                   #####
+ #####                                                                    #####
+ #####     @author: Sukazyo Workshop                                      #####
+ #####     @version： 2.0                                                 #####
+ #####                                                                    #####
+ ##############################################################################
+ ******************************************************************************/
+
+a {
+	color: var(--bcm-color-font-base-link);
+	text-decoration: none;
+	transition:
+			color var(--bcm-element-href-anima-speed),
+			background-color var(--bcm-element-href-anima-speed);
+	border-radius: 0.3rem;
+}
+
+a:hover {
+	color: var(--bcm-color-font-base-link-hover);
+}
+
+a:visited {
+	color: var(--bcm-color-font-base-link-visited);
+}
+
+a:visited:hover {
+	color: var(--bcm-color-font-base-link-visited-hover);
+}
+
+a:focus-visible {
+	background-color: var(--bcm-color-font-base-link-focus-bg);
+	outline: none;
+}
+
+hr {
+	background-color: var(--bcm-color-seperator);
+	height: 0.25rem;
+	border-radius: 1rem;
+	width: 70%;
+	border: none;
+}
+
+hr {
+	margin-block-start: 3rem;
+	margin-block-end: 3rem;
+}
+
+p,
+h1, h2, h3, h4, h5, h6,
+ul, ol, table,
+pre {
+	margin-block-start: 1.6rem;
+	margin-block-end: 1.6rem;
+	
+	line-height: 1.6;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+	margin-block-start: inherit;
+	margin-block-end: inherit;
+}
+
+ul, ol {
+	padding-inline-start: 1.2rem;
+}
+
+li {
+	margin-block-start: 0.2rem;
+	margin-block-end: 0.2rem;
+}
+
+li::marker {
+	color: var(--bcm-color-list-item-marker-std);
+}
+
+ol > li::marker {
+	font-size: 0.65rem;
+}
+
+table {
+	background: var(--bcm-color-table-background);
+	border-radius: 0.5rem;
+	border-spacing: 0.5rem;
+}
+
+table > thead > tr > :is(th, td) {
+	background: var(--bcm-color-table-head-background);
+	color: var(--bcm-color-table-head-foreground);
+	border-radius: 0.3rem;
+}
+
+table > tfoot > tr > :is(th, td) {
+	background: var(--bcm-color-table-foot-background);
+	color: var(--bcm-color-table-foot-foreground);
+	border-radius: 0.3rem;
+}
+
+/*table > thead,*/
+/*table > tbody {*/
+/*	margin: -0.5rem;*/
+/*}*/
+
+table > thead > tr > :is(th, td) {
+	padding: 0.3rem;
+}
+
+table > :is(tbody, tfoot) > tr > :is(th, td) {
+	padding: 0.5rem;
+}
+
+blockquote {
+	margin-block-start: 2.6rem;
+	margin-block-end: 2.6rem;
+}
+
+blockquote {
+	position: relative;
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+	padding-left: 0.88rem;
+	color: var(--bcm-color-blockquote-foreground);
+}
+
+blockquote:before {
+	content: "";
+	position: absolute;
+	top: -0.5rem;
+	bottom: -0.5rem;
+	left: 0;
+	width: 0.25rem;
+	border-radius: 0.5rem;
+	background: var(--bcm-color-blockquote-focus);
+}
+
+code {
+	padding: 0.2rem;
+	border-radius: 0.3rem;
+	background: var(--bcm-color-code-inline-background);
+	font-size: 0.85rem;
+}
+
+:not(pre)>code[class*=language-] {
+	padding: 0.2rem;
+	border-radius: 0.3rem;
+	background: var(--bcm-color-code-inline-background);
+	font-size: 0.85rem;
+}
+
+pre {
+	margin-left: 1.4rem;
+	margin-right: 1.4rem;
+	padding: 0.7rem 0;
+	border-radius: 0.5rem;
+	display: block;
+	background: var(--bcm-color-codeblock-background);
+	color: var(--bcm-color-codeblock-foreground);
+	overflow: hidden;
+	font-size: 14px;
+}
+
+pre[class*=language-] {
+	margin-left: 1.4rem;
+	margin-right: 1.4rem;
+	padding: 0.7rem 0;
+	font-size: 14px;
+}
+
+pre code {
+	display: block;
+	background: var(--bcm-color-codeblock-background);
+	overflow-x: scroll;
+	padding: 0.2rem 1.2rem 0.6rem;
+	line-height: 1.4;
+	font-size: 14px;
+}
+
+pre[class*=language-] code[class*=language-]  {
+	font-size: 14px;
+}
+
+pre code::-webkit-scrollbar {
+	-webkit-appearance: none;
+	height: 0.25rem;
+	border-radius: 0.5rem;
+	background: none;
+}
+
+pre code::-webkit-scrollbar-thumb {
+	height: 0.25rem;
+	border-radius: 0.5rem;
+	background: var(--color-scrollbar-main-foreground);
+}
+
+pre code::-webkit-scrollbar-track {
+	height: 0.25rem;
+	border-radius: 0.5rem;
+	background: none;
+	margin: 0.7rem;
+}
+
+
+kbd {
+	background: var(--bcm-color-keyboard-background);
+	border-radius: 50% 45% 0.1rem 0.2rem;
+	color: var(--bcm-color-keyboard-foreground);
+	font-weight: bold;
+	padding: 0.2rem 0.25rem;
+}
+
+kbd + kbd {
+	margin-inline-start: 0.25rem;
+}
+
+mark {
+	background-color: var(--bcm-color-font-base-mark-bg);
+	color: var(--bcm-color-font-base-mark);
+	border-radius: 0.1rem;
+}
+
+small {
+	opacity: var(--bcm-element-opacity-weakness);
+}
+
+img {
+	max-width: 100%;
+}

@@ -1,0 +1,11 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"iis.configDir": "",
+	"explorer.fileNesting.patterns": {
+		"*.vue": "${capture}.js, ${capture}.ts, ${capture}.jsx, ${capture}.tsx"
+	},
+	"files.exclude": {
+		"**/node_modules": true,
+		"dist": true
+	},
+}
