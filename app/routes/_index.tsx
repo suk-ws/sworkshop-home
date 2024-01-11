@@ -1,43 +1,25 @@
 import type { MetaFunction } from "@remix-run/node";
-import styles from "./_index.module.styl";
+import I from "~/utils/I";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "New Remix App" },
-		{ name: "description", content: "Welcome to Remix!" },
+		{ title: "Workshop Home" }
 	];
 };
 
 export default function Index() {
 	return (
-		<div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-			<h1>Welcome to Remix</h1>
-			<ul>
-				<li>
-					<a
-						target="_blank"
-						href="https://remix.run/tutorials/blog"
-						rel="noreferrer"
-						className={styles.highlight}
-					>
-						15m Quickstart Blog Tutorial
-					</a>
-				</li>
-				<li>
-					<a
-						target="_blank"
-						href="https://remix.run/tutorials/jokes"
-						rel="noreferrer"
-					>
-						Deep Dive Jokes App Tutorial
-					</a>
-				</li>
-				<li>
-					<a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-						Remix Docs
-					</a>
-				</li>
-			</ul>
+		<div>
+			
+			<h1><I weight={700} fill={0.5}>star</I>Hello, World!</h1>
+			
+			<p>Here is some of the symbols test:
+				{/* like outlined<I type="outlined">star</I> star, */}
+				rounded <I>star</I> star,
+				{/* sharp <I type="sharp">star</I> star, */}
+				and the default <I defaults>star</I> star with default size!
+			</p>
+			
 		</div>
 	);
 }

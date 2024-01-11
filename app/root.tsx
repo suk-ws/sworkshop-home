@@ -7,6 +7,8 @@ import {
 	ScrollRestoration,
 } from "@remix-run/react";
 
+import "./root.stylus"
+
 export default function App() {
 	return (
 		<html lang="en">
