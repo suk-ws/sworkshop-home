@@ -8,8 +8,11 @@ installGlobals()
 export default defineConfig({
 	plugins: [
 		remix({
-			
+			ignoredRouteFiles: [
+				"**/*.styl",
+				"**/*.stylus"
+			],
 		}),
-		tsconfigPaths({})
+		tsconfigPaths()
 	]
 })
