@@ -1,4 +1,4 @@
-import { classes, posXY } from "~/utils/element";
+import { classes, posXY, useTransitionAppear, useTransitionOf } from "~/utils/element";
 import css from "./header.module.styl"
 import React from "react";
 import { randomInt, randomNumber, randomTrue } from "~/utils/random";
@@ -6,6 +6,7 @@ import { rangeInt } from "~/utils/math";
 import Fragment, { FragmentPublicModel, FragmentTypeAModel } from "~/components/fragments";
 import { _ret } from "~/utils/fp";
 import { ClientOnly } from "remix-utils/client-only";
+import { CSSTransition } from "react-transition-group"
 
 function randPos (): React.CSSProperties {
 	return {
@@ -40,9 +41,15 @@ export interface FragmentFloatingContainerConfig {
 
 export function FragmentFloatingContainer (_: FragmentFloatingContainerConfig): JSX.Element {
 	return (
-		<div className={css.fragmentContainer} style={_.floatingStyle}>
-			<Fragment {..._.model}/>
-		</div>
+		<CSSTransition
+		{...useTransitionAppear()}
+		classNames={useTransitionOf(css)("fragment-container")}
+		timeout={600}
+		>
+			<div className={css.fragmentContainer} style={_.floatingStyle}>
+				<Fragment {..._.model} />
+			</div>
+		</CSSTransition>
 	)
 }
 

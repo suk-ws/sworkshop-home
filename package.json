@@ -30,18 +30,20 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@remix-run/node": "^2.4.1",
-		"@remix-run/react": "^2.4.1",
-		"@remix-run/serve": "^2.4.1",
-		"isbot": "^3.6.8",
+		"@remix-run/node": "2.5.0",
+		"@remix-run/react": "2.5.0",
+		"@remix-run/serve": "2.5.0",
+		"isbot": "4.4.0",
 		"react": "18.3.0-canary-08cd087ca-20240110",
 		"react-dom": "18.3.0-canary-08cd087ca-20240110",
+		"react-transition-group": "^4.4.5",
 		"remix-utils": "^7.5.0"
 	},
 	"devDependencies": {
-		"@remix-run/dev": "^2.4.1",
+		"@remix-run/dev": "^2.5.0",
 		"@types/react": "^18.2.20",
 		"@types/react-dom": "^18.2.7",
+		"@types/react-transition-group": "^4.4.10",
 		"@types/stylus": "^0.48.42",
 		"stylus": "^0.62.0",
 		"typescript": "^5.1.6",
