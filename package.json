@@ -27,8 +27,7 @@
 		"dev": "remix vite:dev",
 		"lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
 		"start": "remix-serve ./build/server/index.js",
-		"typecheck": "tsc",
-		"stylus": "stylus --watch app/**/*"
+		"typecheck": "tsc"
 	},
 	"dependencies": {
 		"@remix-run/node": "^2.4.1",
@@ -36,7 +35,8 @@
 		"@remix-run/serve": "^2.4.1",
 		"isbot": "^3.6.8",
 		"react": "18.3.0-canary-08cd087ca-20240110",
-		"react-dom": "18.3.0-canary-08cd087ca-20240110"
+		"react-dom": "18.3.0-canary-08cd087ca-20240110",
+		"remix-utils": "^7.5.0"
 	},
 	"devDependencies": {
 		"@remix-run/dev": "^2.4.1",

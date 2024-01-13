@@ -30,3 +30,7 @@ export function did<T> (expr: () => T): T {
  * The alias of {@link did}
  */
 export const _$ = did
+
+export function _ret<T> (obj: T): T {
+	return obj
+}

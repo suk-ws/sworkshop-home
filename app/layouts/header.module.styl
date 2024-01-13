@@ -1,0 +1,30 @@
+.header
+	background-color #f6f8fa
+	use-flex column
+	flex-wrap nowrap
+	size 100% 100vh
+	overflow hidden
+	position relative
+
+.title
+	z-index 100
+	flex 1 1 0
+	use-flex column
+	use-flex-center()
+	color #564c7f
+	text-align center
+	> .main-title
+		font 700 56px 'Baloo 2'
+		letter-spacing .16rem
+	> .sub-title
+		color #69698578
+		font-size 18px
+
+.fragment-canvas
+	z-index 1
+	position absolute
+	pos 0
+
+.fragment-container
+	position absolute
+	opacity 0.6

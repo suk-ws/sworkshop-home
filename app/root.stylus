@@ -8,3 +8,9 @@ body
 	
 	font-family var(--font-doc)
 	
+	// for breaking collapsing margin
+	overflow auto
+	
+
+::selection
+	background-color hsla(0, 0%, 50%, 0.18)

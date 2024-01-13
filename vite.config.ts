@@ -34,6 +34,9 @@ export default defineConfig({
 		preprocessorOptions: {
 			stylus: stylusConfig,
 			styl: stylusConfig
+		},
+		modules: {
+			localsConvention: "camelCase",
 		}
 	}
 })

@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import I from "~/utils/I";
+import DefaultLayout from "~/layouts/layout_default";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -9,17 +9,19 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
 	return (
-		<div>
+		// <div>
 			
-			<h1><I weight={700} fill={0.5}>star</I>Hello, World!</h1>
+		// 	<h1><I weight={700} fill={0.5}>star</I>Hello, World!</h1>
 			
-			<p>Here is some of the symbols test:
-				{/* like outlined<I type="outlined">star</I> star, */}
-				rounded <I>star</I> star,
-				{/* sharp <I type="sharp">star</I> star, */}
-				and the default <I defaults>star</I> star with default size!
-			</p>
+		// 	<p>Here is some of the symbols test:
+		// 		{/* like outlined<I type="outlined">star</I> star, */}
+		// 		rounded <I>star</I> star,
+		// 		{/* sharp <I type="sharp">star</I> star, */}
+		// 		and the default <I defaults>star</I> star with default size!
+		// 	</p>
 			
-		</div>
+		// </div>
+		<DefaultLayout>
+		</DefaultLayout>
 	);
 }
