@@ -14,22 +14,37 @@
 	font-size 0.8rem
 	color #76787a
 	
-	use-flex column
-	use-flex-center()
-	gap 0.2em
+	use-flex row
+	gap 1em
 	
 	p
 		clear-pad()
+	> .copyright
+		flex 1 1 0
+	> .ext-urls
+		flex 0 0 auto
+	> .separator
+		flex 0 0 auto
+		align-self stretch
+		width 2px
+		border-radius 2px
+		background-color #76787a49
 	
 
 .ext-urls
 	
-	use-flex row
+	use-flex column
 	gap 0.55em
 	
 	> a
+		
 		font-normalize()
 		transition color 300ms
 		&:hover
 			color #80a8d1
+		
+		use-flex row
+		gap 0.5em
+		align-items center
+		
 	

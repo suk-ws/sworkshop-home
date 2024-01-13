@@ -5,19 +5,26 @@ export default function Footer (): JSX.Element {
 	return (
 		<div className={css.footerContainer}>
 			<div className={css.messageBox}>
-				<p className='copyright'>Copyright © Sukazyo Workshop 2023</p>
+				<p className={css.copyright}>
+					<span>Copyright © 2023-2024 Sukazyo Workshop, and its affiliates.</span>
+				</p>
+				<div className={css.separator}></div>
 				<p className={css.extUrls}>
 					<a target='_blank' href='https://github.com/suk-ws'>
 						<I nerd>nf-md-github</I>
+						<span>GitHub Home</span>
 					</a>
 					<a target='_blank' href='https://github.com/suk-ws/sworkshop-home'>
 						<I nerd>nf-md-git</I>
+						<span>This Website</span>
 					</a>
 					<a target='_blank' href='https://book.sukazyo.cc'>
 						<I nerd>nf-fa-book</I>
+						<span>Workshop Documentation</span>
 					</a>
 					<a target='_blank' href='https://twitter.com/_suk_ws'>
 						<I nerd>nf-fa-twitter_square</I>
+						<span>Official Twitter (or x.com?)</span>
 					</a>
 					{/* <a target='_blank' href='https://a.sukazyo.cc/@workshop'>
 						<I nerd>nf-md-mastodon</I>
