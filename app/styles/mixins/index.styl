@@ -1,0 +1,14 @@
+// public functions/mixins available in the whole project
+
+size(args...)
+	width args[0]
+	if length(args) > 1
+		height args[1]
+	else
+		height args[0]
+
+clear-pad()
+	margin 0
+	padding 0
+	border none
+	outline none

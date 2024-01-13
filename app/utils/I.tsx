@@ -3,7 +3,6 @@ import styles from './i.module.stylus'
 
 import { CSSProperties } from 'react'
 import { classes } from './element'
-import { _$ } from './fp'
 
 interface MaterialSymbolProps {
 	/**
