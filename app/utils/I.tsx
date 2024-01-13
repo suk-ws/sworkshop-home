@@ -3,6 +3,7 @@ import styles from './i.module.stylus'
 
 import { CSSProperties } from 'react'
 import { classes } from './element'
+import { _$ } from './fp'
 
 interface MaterialSymbolProps {
 	/**
@@ -85,4 +86,47 @@ export function MaterialSymbol (_: MaterialSymbolProps) {
 	
 }
 
-export default MaterialSymbol
+export interface NerdFontSymbolProps {
+	/**
+	 * The name of the symbol/icon.
+	 * 
+	 * Can be class/name prefixed with `nf-` or nor. Cannot be icon itself or
+	 * icon's UTF code.
+	 */
+	children: string
+	/**
+	 * If the icon should use Nerd Font Webfont default preset font-size line-height etc.
+	 * 
+	 * The default behavor of this component is no -- means this icons font-size and
+	 * line-height etc will use the inherited value.
+	 * 
+	 * The default behavor of the Material Symbols library is yes. Set it to `true` to
+	 * use this behavor.
+	 */
+	defaults?: boolean
+}
+export function NerdFontSymbol (_: NerdFontSymbolProps) {
+	
+	const symbolName = _$(() => {
+		if (_.children.startsWith('nf-'))
+			return _.children.substring('nf-'.length)
+		else return _.children
+	})
+	const inherit_mode = !_.defaults
+	
+	return <span
+		className={classes('nf', 'nerd-font', 'nf-'+symbolName, inherit_mode?styles['inherit-mode']:'')}
+	/>
+	
+}
+
+export type IconModel =
+	{ material?: boolean } & MaterialSymbolProps |
+	{ nerd: true } & NerdFontSymbolProps
+
+export default function Icon (_: IconModel): JSX.Element {
+	if ('nerd' in _)
+		return <NerdFontSymbol {..._} />
+	else
+		return <MaterialSymbol {..._} />
+}

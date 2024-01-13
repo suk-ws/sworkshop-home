@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { randomInt, randomNumber, randomTrue } from "~/utils/random";
 import { rangeInt } from "~/utils/math";
 import Fragment, { FragmentPublicModel, FragmentTypeAModel } from "~/components/fragments";
-import { _ret } from "~/utils/fp";
+import { $as } from "~/utils/fp";
 import { ClientOnly } from "remix-utils/client-only";
 import { CSSTransition } from "react-transition-group"
 
@@ -35,14 +35,14 @@ const fragmentTypeBColors = {
 }
 function randFragmentsConfigs (): FragmentFloatingContainerConfig[] {
 	return [
-		...(rangeInt(8, 10).map(_ => _ret<FragmentFloatingContainerConfig>({
+		...(rangeInt(8, 10).map(_ => $as<FragmentFloatingContainerConfig>({
 			floatingStyle: randPos(),
 			model: {
 				type: 'a',
 				model: randFragmentModelTypeA()
 			} as const
 		}))),
-		...(rangeInt(5).map(_ => _ret<FragmentFloatingContainerConfig>({
+		...(rangeInt(5).map(_ => $as<FragmentFloatingContainerConfig>({
 			floatingStyle: randPos(),
 			model: {
 				type: 'b',
@@ -51,7 +51,7 @@ function randFragmentsConfigs (): FragmentFloatingContainerConfig[] {
 				}
 			} as const
 		}))),
-		...(rangeInt(2).map(_ => _ret<FragmentFloatingContainerConfig>({
+		...(rangeInt(2).map(_ => $as<FragmentFloatingContainerConfig>({
 			floatingStyle: randPos(),
 			model: {
 				type: 'b',

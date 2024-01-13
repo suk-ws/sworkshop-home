@@ -12,11 +12,24 @@
 	border-radius 0.5em
 	background-color #e6ebf1
 	font-size 0.8rem
-	
 	color #76787a
+	
 	use-flex column
 	use-flex-center()
+	gap 0.2em
 	
 	p
 		clear-pad()
+	
+
+.ext-urls
+	
+	use-flex row
+	gap 0.55em
+	
+	> a
+		font-normalize()
+		transition color 300ms
+		&:hover
+			color #80a8d1
 	

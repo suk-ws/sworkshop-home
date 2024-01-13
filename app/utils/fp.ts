@@ -31,6 +31,24 @@ export function did<T> (expr: () => T): T {
  */
 export const _$ = did
 
-export function _ret<T> (obj: T): T {
+/**
+ * Returns the input object as is.
+ *
+ * For sometimes you need to write a inline function that just return a static object,
+ * but in plain javascript, you need to write:
+ * ```
+ * needAObjectReturn(() => { return {...} })
+ * ```
+ * That's confusing.
+ * 
+ * With it, you will just write:
+ * ```
+ * needAObjectReturn(() => $as({ ... }))
+ * ```
+ *
+ * @param {T} obj - The input object.
+ * @return {T} - The same input object.
+ */
+export function $as<T> (obj: T): T {
 	return obj
 }
