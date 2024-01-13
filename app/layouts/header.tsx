@@ -1,6 +1,6 @@
 import { classes, posXY, useTransitionAppear, useTransitionOf } from "~/utils/element";
 import css from "./header.module.styl"
-import React from "react";
+import React, { useRef } from "react";
 import { randomInt, randomNumber, randomTrue } from "~/utils/random";
 import { rangeInt } from "~/utils/math";
 import Fragment, { FragmentPublicModel, FragmentTypeAModel } from "~/components/fragments";
@@ -33,30 +33,9 @@ const fragmentTypeBColors = {
 	normal: '#abcdef',
 	highlight: '#efabab'
 }
-
-export interface FragmentFloatingContainerConfig {
-	floatingStyle: React.CSSProperties,
-	model: FragmentPublicModel
-}
-
-export function FragmentFloatingContainer (_: FragmentFloatingContainerConfig): JSX.Element {
-	return (
-		<CSSTransition
-		{...useTransitionAppear()}
-		classNames={useTransitionOf(css)("fragment-container")}
-		timeout={600}
-		>
-			<div className={css.fragmentContainer} style={_.floatingStyle}>
-				<Fragment {..._.model} />
-			</div>
-		</CSSTransition>
-	)
-}
-
-export function FragmentCanvas (): JSX.Element {
-	
-	const fragments: FragmentFloatingContainerConfig[] = [
-		...(rangeInt(8).map(_ => _ret<FragmentFloatingContainerConfig>({
+function randFragmentsConfigs (): FragmentFloatingContainerConfig[] {
+	return [
+		...(rangeInt(8, 10).map(_ => _ret<FragmentFloatingContainerConfig>({
 			floatingStyle: randPos(),
 			model: {
 				type: 'a',
@@ -82,6 +61,32 @@ export function FragmentCanvas (): JSX.Element {
 			} as const
 		}))),
 	]
+}
+
+export interface FragmentFloatingContainerConfig {
+	floatingStyle: React.CSSProperties,
+	model: FragmentPublicModel
+}
+
+export function FragmentFloatingContainer (_: FragmentFloatingContainerConfig): JSX.Element {
+	const ref_animated = useRef(null)
+	return (
+		<CSSTransition
+		nodeRef={ref_animated}
+		{...useTransitionAppear()}
+		classNames={useTransitionOf(css)("fragment-container")}
+		timeout={600}
+		>
+			<div ref={ref_animated} className={css.fragmentContainer} style={_.floatingStyle}>
+				<Fragment {..._.model} />
+			</div>
+		</CSSTransition>
+	)
+}
+
+export function FragmentCanvas (): JSX.Element {
+	
+	const fragments: FragmentFloatingContainerConfig[] = randFragmentsConfigs()
 	
 	return (
 		<div className={css.fragmentCanvas}>
@@ -93,8 +98,10 @@ export function FragmentCanvas (): JSX.Element {
 	
 }
 
-export default function Header(): JSX.Element {
-	
+export interface HeaderProps {
+	inject?: JSX.Element
+}
+export default function Header(_: HeaderProps): JSX.Element {
 	
 	return (
 		<div className={classes(css.header)}>
@@ -109,6 +116,8 @@ export default function Header(): JSX.Element {
 					<span>coming soon...</span>
 				</div>
 			</div>
+			
+			{_.inject}
 			
 		</div>
 	);

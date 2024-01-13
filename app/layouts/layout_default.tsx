@@ -1,3 +1,4 @@
+import Footer from "./footer"
 import Header from "./header"
 
 export interface DefaultLayoutProps {
@@ -6,7 +7,7 @@ export interface DefaultLayoutProps {
 
 export default function DefaultLayout (_: DefaultLayoutProps): JSX.Element {
 	return <>
-		<Header />
+		<Header inject={Footer()} />
 		{_.children}
 	</>
 }
