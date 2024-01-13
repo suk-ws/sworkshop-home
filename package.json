@@ -1,8 +1,27 @@
 {
 	"name": "sworkshop-home",
+	"description": "Sukazyo Workshop Homepage",
+	"icon": "./public/favicon.ico",
+	"license": "All Rights Reserved",
 	"private": true,
-	"sideEffects": false,
+	"homepage": "https://sukazyo.cc/",
+	"author": "Sukazyo Workshop",
+	"contributors": [
+		{
+			"name": "A.C. Sukazyo Eyre",
+			"email": "sukazyo@outlook.com"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/suk-ws/sworkshop-home.git"
+	},
+	"bugs": {
+		"email": "icee@sukazyo.cc",
+		"url": "https://github.com/suk-ws/sworkshop-home/issues"
+	},
 	"type": "module",
+	"sideEffects": false,
 	"scripts": {
 		"build": "remix vite:build",
 		"dev": "remix vite:dev",
