@@ -52,3 +52,18 @@ export const _$ = did
 export function $as<T> (obj: T): T {
 	return obj
 }
+
+/**
+ * Check if a value is `undefined`, and return a fallback value if it is.
+ * 
+ * May also known as *undefined safety*.
+ * 
+ * @param <Use> - The default type.
+ * @param <Else> - The undef fallback type.
+ * @param it The value need to be undef-safety check.
+ * @param orElse The fallback value.
+ * @returns `it` when the value is not undefined, `orElse` or else.
+ */
+export function useOrElse <Use, Else> (it: Use|undefined, orElse: Else): Use|Else {
+	return it === undefined ? orElse : it
+}

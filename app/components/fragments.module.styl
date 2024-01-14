@@ -31,4 +31,17 @@
 		height 4em
 		border-radius 0.5em
 		publicFont()
-	
+
+.fragment-canvas
+	z-index 1
+	position absolute
+	pos 0
+
+.fragment-container
+	position absolute
+	opacity 0.5
+	&-appear
+		opacity 0
+	&-appear-active
+		opacity 0.5
+		transition opacity 500ms

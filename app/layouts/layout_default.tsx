@@ -3,11 +3,13 @@ import Header from "./header"
 
 export interface DefaultLayoutProps {
 	children?: React.ReactNode
+	useComingSoon?: boolean
 }
 
 export default function DefaultLayout (_: DefaultLayoutProps): JSX.Element {
 	return <>
-		<Header inject={Footer()} />
+		<Header />
 		{_.children}
+		<Footer />
 	</>
 }

@@ -1,12 +1,24 @@
+@import "~/styles/global"
+
 .footer-container
 	z-index 100
 	box-sizing border-box
-	padding 28px 36px
 	width 100%
+	background-color #f6f8fa
+	position relative
+	overflow hidden
+	use-flex column
+
+.footer-body-connector
+	z-index 9
+	height 2rem
+	background linear-gradient(#ffffffff, #ffffff00)
 
 .message-box
 	
+	z-index 100
 	box-sizing border-box
+	margin 28px 36px
 	padding 1.5em 3em
 	min-height 5rem
 	border-radius 0.5em
@@ -15,11 +27,13 @@
 	color #76787a
 	
 	use-flex row
-	gap 1em
+	+onMediaThin()
+		use-flex column
+	gap 1.2em
 	
 	p
 		clear-pad()
-	> .copyright
+	> .messages
 		flex 1 1 0
 	> .ext-urls
 		flex 0 0 auto
@@ -27,9 +41,17 @@
 		flex 0 0 auto
 		align-self stretch
 		width 2px
+		+onMediaThin()
+			height 2px
+			width auto
 		border-radius 2px
 		background-color #76787a49
 	
+
+.messages
+	p
+		+ p
+			margin-block-start 1em
 
 .ext-urls
 	

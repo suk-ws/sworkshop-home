@@ -1,5 +1,7 @@
+$header-background = $f6f8fa
+
 .header
-	background-color #f6f8fa
+	background-color $header-background
 	use-flex column
 	flex-wrap nowrap
 	size 100% 100vh
@@ -20,16 +22,7 @@
 		color #69698578
 		font-size 18px
 
-.fragment-canvas
-	z-index 1
-	position absolute
-	pos 0
-
-.fragment-container
-	position absolute
-	opacity 0.5
-	&-appear
-		opacity 0
-	&-appear-active
-		opacity 0.5
-		transition opacity 500ms
+.header-body-connector
+	z-index 9
+	min-height 5rem
+	background linear-gradient(#ffffff00, #ffffffff)
