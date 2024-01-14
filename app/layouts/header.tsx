@@ -11,7 +11,6 @@ export interface HeaderProps {
 export default function Header(_: HeaderProps): JSX.Element {
 	
 	const useBodyConnector = useOrElse(_.useBodyConnector, true)
-	console.log(`useBodyConnector: ${useBodyConnector}`)
 	
 	return <>
 		
