@@ -25,7 +25,6 @@
 	"scripts": {
 		"build": "remix vite:build",
 		"dev": "remix vite:dev",
-		"lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
 		"start": "remix-serve ./build/server/index.js",
 		"typecheck": "tsc"
 	},
@@ -48,7 +47,7 @@
 		"stylus": "^0.62.0",
 		"typescript": "^5.1.6",
 		"vite": "^5.0.11",
-		"vite-plugin-stylus-alias": "file:../vite-plugin-stylus-alias/package.tgz",
+		"vite-plugin-stylus-alias-next": "file:libs/vite-plugin-stylus-alias-next-1.2.0.tgz",
 		"vite-tsconfig-paths": "^4.2.3"
 	},
 	"engines": {

@@ -2,7 +2,7 @@ import { unstable_vitePlugin as remix } from "@remix-run/dev";
 import { installGlobals } from "@remix-run/node";
 import { defineConfig } from "vite";
 import vitePluginTsconfigPaths from "vite-tsconfig-paths"
-import vitePluginStylusAlias from "vite-plugin-stylus-alias"
+import vitePluginStylusAlias from "vite-plugin-stylus-alias-next"
 import path from "node:path"
 
 installGlobals()

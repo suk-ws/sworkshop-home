@@ -4497,9 +4497,9 @@ vite-node@^0.28.5:
     source-map-support "^0.5.21"
     vite "^3.0.0 || ^4.0.0"
 
-"vite-plugin-stylus-alias@file:../vite-plugin-stylus-alias/package.tgz":
+"vite-plugin-stylus-alias-next@file:libs/vite-plugin-stylus-alias-next-1.2.0.tgz":
   version "1.2.0"
-  resolved "file:../vite-plugin-stylus-alias/package.tgz#3b493f2cbcd6118ec6fc9b50dbab2706861cbcba"
+  resolved "file:libs/vite-plugin-stylus-alias-next-1.2.0.tgz#3b493f2cbcd6118ec6fc9b50dbab2706861cbcba"
   dependencies:
     querystring "^0.2.1"
 
