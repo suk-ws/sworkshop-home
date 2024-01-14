@@ -1,7 +1,9 @@
 import { CSSTransitionClassNames } from "react-transition-group/CSSTransition"
 
-export function classes (...classes: (string|null)[]) {
-	return classes.filter(x => x != null).join(' ')
+export function classes (...classes: (string|false|null|undefined)[]) {
+	return classes.filter(x =>
+		(x !== null) && (x !== undefined) && (x !== false)
+	).join(' ')
 }
 
 export function posXY (x: string, y: string): React.CSSProperties {

@@ -3,16 +3,23 @@ import css from './footer.module.styl'
 import { ClientOnly } from 'remix-utils/client-only'
 import { FragmentCanvas } from '~/components/fragments'
 import { randomInt } from '~/utils/random'
+import { useOrElse } from '~/utils/fp'
+import { classes } from '~/utils/element'
 
-export default function Footer (): JSX.Element {
+export interface FooterProps {
+	useBodyConnector?: boolean
+	noBackgrond?: boolean
+}
+export default function Footer (_: FooterProps): JSX.Element {
+	const useBodyConnector = useOrElse(_.useBodyConnector, true)
 	return (
-		<div className={css.footerContainer}>
+		<div className={classes(css.footerContainer, _.noBackgrond && css.noBackground)}>
 			
-			<div className={css.footerBodyConnector}></div>
+			{(useBodyConnector) && <div className={css.footerBodyConnector}></div>}
 			
 			<div className={css.messageBox}>
 				<div className={css.messages}>
-					<p><strong>Copyright © 2023-2024 Sukazyo Workshop, and its affiliates.</strong></p>
+					<p>Copyright © 2023-2024 Sukazyo Workshop, and its affiliates.</p>
 					<p>Made with <I fill={1}>breakfast_dining</I> and <I fill={1}>favorite</I></p>
 				</div>
 				<div className={css.separator}></div>
@@ -39,11 +46,11 @@ export default function Footer (): JSX.Element {
 				</div>
 			</div>
 			
-			<ClientOnly>{() => <FragmentCanvas countConfig={{
+			{(_.noBackgrond != true) && <ClientOnly>{() => <FragmentCanvas countConfig={{
 				typeA: randomInt(0, 2),
 				typeB_normal: randomInt(0, 2),
 				typeB_highlight: randomInt(0, 1)
-			}} />}</ClientOnly>
+			}} />}</ClientOnly>}
 			
 		</div>
 	)

@@ -2,7 +2,7 @@ import { classes, posXY, useTransitionAppear, useTransitionOf } from "~/utils/el
 import css from "./fragments.module.styl"
 import { rangeInt } from "~/utils/math"
 import { useRef } from "react"
-import { $as, _$, useOrElse } from "~/utils/fp"
+import { as$, _$, useOrElse } from "~/utils/fp"
 import { randomNumber, randomInt, randomTrue } from "~/utils/random"
 import { CSSTransition } from "react-transition-group"
 
@@ -117,14 +117,14 @@ export interface FragmentDrawCounts {
 function randFragmentsConfigs (counts: FragmentDrawCounts): FragmentFloatingContainerConfig[] {
 	
 	return [
-		...(rangeInt(counts.typeA).map(_ => $as<FragmentFloatingContainerConfig>({
+		...(rangeInt(counts.typeA).map(_ => as$<FragmentFloatingContainerConfig>({
 			floatingStyle: randPos(),
 			model: {
 				type: 'a',
 				model: randFragmentModelTypeA()
 			} as const
 		}))),
-		...(rangeInt(counts.typeB_normal).map(_ => $as<FragmentFloatingContainerConfig>({
+		...(rangeInt(counts.typeB_normal).map(_ => as$<FragmentFloatingContainerConfig>({
 			floatingStyle: randPos(),
 			model: {
 				type: 'b',
@@ -133,7 +133,7 @@ function randFragmentsConfigs (counts: FragmentDrawCounts): FragmentFloatingCont
 				}
 			} as const
 		}))),
-		...(rangeInt(counts.typeB_highlight).map(_ => $as<FragmentFloatingContainerConfig>({
+		...(rangeInt(counts.typeB_highlight).map(_ => as$<FragmentFloatingContainerConfig>({
 			floatingStyle: randPos(),
 			model: {
 				type: 'b',

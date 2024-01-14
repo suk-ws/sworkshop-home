@@ -2,14 +2,20 @@ import { classes } from "~/utils/element";
 import css from "./header.module.styl"
 import { FragmentCanvas } from "~/components/fragments";
 import { ClientOnly } from "remix-utils/client-only";
+import { useOrElse } from "~/utils/fp";
 
 export interface HeaderProps {
 	inject?: JSX.Element
+	useBodyConnector?: boolean
 }
 export default function Header(_: HeaderProps): JSX.Element {
 	
+	const useBodyConnector = useOrElse(_.useBodyConnector, true)
+	console.log(`useBodyConnector: ${useBodyConnector}`)
+	
 	return <>
-		<div className={classes(css.header, css.bodyConnecting)}>
+		
+		<div className={classes(css.header)}>
 			
 			<ClientOnly>{() => <FragmentCanvas />}</ClientOnly>
 			
@@ -24,12 +30,10 @@ export default function Header(_: HeaderProps): JSX.Element {
 			
 			{_.inject}
 			
-			<div className={css.headerBodyConnector}></div>
+			{useBodyConnector && <div className={css.headerBodyConnector}></div>}
 			
 		</div>
-		<div className={css.bodyHeaderConnectorBox}>
-			<div className={css.bodyHeaderConnector}></div>
-		</div>
+		
 	</>;
 	
 }

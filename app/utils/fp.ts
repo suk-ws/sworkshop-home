@@ -22,14 +22,14 @@
  * 
  * It also have a alias named {@link _$}. use it as you like.
  */
-export function did<T> (expr: () => T): T {
+export function do$<T> (expr: () => T): T {
 	return expr()
 }
 
 /**
- * The alias of {@link did}
+ * The alias of {@link do$}
  */
-export const _$ = did
+export const _$ = do$
 
 /**
  * Returns the input object as is.
@@ -49,7 +49,7 @@ export const _$ = did
  * @param {T} obj - The input object.
  * @return {T} - The same input object.
  */
-export function $as<T> (obj: T): T {
+export function as$<T> (obj: T): T {
 	return obj
 }
 
