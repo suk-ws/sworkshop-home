@@ -29,9 +29,9 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@remix-run/node": "2.5.0",
-		"@remix-run/react": "2.5.0",
-		"@remix-run/serve": "2.5.0",
+		"@remix-run/node": "2.6.0",
+		"@remix-run/react": "2.6.0",
+		"@remix-run/serve": "2.6.0",
 		"isbot": "4.4.0",
 		"react": "18.3.0-canary-08cd087ca-20240110",
 		"react-dom": "18.3.0-canary-08cd087ca-20240110",
@@ -47,7 +47,7 @@
 		"stylus": "^0.62.0",
 		"typescript": "^5.1.6",
 		"vite": "^5.0.11",
-		"vite-plugin-stylus-alias-next": "file:libs/vite-plugin-stylus-alias-next-1.2.0.tgz",
+		"vite-plugin-stylus-alias-next": "^1.2.0",
 		"vite-tsconfig-paths": "^4.2.3"
 	},
 	"engines": {
