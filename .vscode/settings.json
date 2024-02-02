@@ -11,4 +11,7 @@
 	"cssModules.pathAlias": {
 		"~": "./app"
 	},
+	"cSpell.words": [
+		"styl"
+	],
 }

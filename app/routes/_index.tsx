@@ -1,10 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
 import DefaultLayout from "~/layouts/layout_default";
 import I from "~/utils/I";
+import website from "~/website";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Workshop Home" }
+		{ title: website.title("Home") }
 	];
 };
 
