@@ -4,7 +4,6 @@ ENV NODE_ENV production
 FROM base AS deps
 WORKDIR /app
 ADD package.json ./
-ADD libs libs/
 RUN npm install --include=dev --legacy-peer-deps
 
 FROM base as production-deps
