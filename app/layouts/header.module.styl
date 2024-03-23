@@ -1,7 +1,11 @@
 $header-background = #f6f8fa
+$header-background-dark = #302f2f
+// $header-background-dark = #393939
 
 .header
 	background-color $header-background
+	+dark-mode()
+		background-color $header-background-dark
 	use-flex column
 	flex-wrap nowrap
 	size 100% 100vh
@@ -14,15 +18,21 @@ $header-background = #f6f8fa
 	use-flex column
 	use-flex-center()
 	color #564c7f
+	+dark-mode()
+		color #f8dfd7
 	text-align center
 	> .main-title
 		font 700 56px 'Baloo 2'
 		letter-spacing .16em
 	> .sub-title
 		color #69698578
+		+dark-mode()
+			color #f6edea78
 		font-size 18px
 
 .header-body-connector
 	z-index 9
 	min-height 5rem
 	background linear-gradient(#ffffff00, #ffffffff)
+	+dark-mode()
+		background linear-gradient(#000000ff, #00000000)

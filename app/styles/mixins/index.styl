@@ -1,5 +1,10 @@
 // public functions/mixins available in the whole project
 
+dark-mode()
+	// css on native dark mode
+	@media (prefers-color-scheme: dark)
+		{block}
+
 size(args...)
 	width args[0]
 	if length(args) > 1

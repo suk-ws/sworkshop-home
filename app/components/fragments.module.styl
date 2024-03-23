@@ -3,7 +3,11 @@
 	position relative
 	publicFont()
 		background-color darken(#f6f8fa, 3%)
+		+dark-mode()
+			background-color lighten(#302f2f, 3%)
 		color lighten(black, 35%)
+		+dark-mode()
+			color darken(white, 45%)
 		font-family 'Redacted Script'
 		font-weight bolder
 		user-select none
@@ -22,6 +26,8 @@
 			position absolute
 			pos 0.35em
 			background-color #acbcd8
+			+dark-mode()
+				background-color #b47162
 			width 0.3em
 			border-radius 0.4em
 	
@@ -31,6 +37,16 @@
 		height 4em
 		border-radius 0.5em
 		publicFont()
+		&[colorscheme=normal]
+			background-color #abcdef
+			+dark-mode()
+				// background-color #6b6c96
+				background-color #725454
+		&[colorscheme=highlight]
+			background-color #efabab
+			+dark-mode()
+				background-color #9f3f65
+				// background-color #9e5a5a
 
 .fragment-canvas
 	z-index 1

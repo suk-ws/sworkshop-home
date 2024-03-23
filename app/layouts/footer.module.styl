@@ -5,6 +5,8 @@
 	box-sizing border-box
 	width 100%
 	background-color #f6f8fa
+	+dark-mode()
+		background-color #302f2f
 	&.no-background
 		background-color unset
 	position relative
@@ -15,6 +17,8 @@
 	z-index 9
 	height 2rem
 	background linear-gradient(#ffffffff, #ffffff00)
+	+dark-mode()
+		background linear-gradient(#000000ff, #00000000)
 
 .message-box
 	
@@ -27,6 +31,9 @@
 	background-color #e6ebf1
 	font-size 0.8rem
 	color #76787a
+	+dark-mode()
+		background-color #3b3938
+		color #bdbcbc
 	
 	use-flex row
 	+onMediaThin()
@@ -48,6 +55,8 @@
 			width auto
 		border-radius 2px
 		background-color #76787a49
+		+dark-mode()
+			background-color #bdbcbc49
 	
 
 .messages

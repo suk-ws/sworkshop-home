@@ -27,9 +27,10 @@ export interface FragmentTypeBModel {
 
 export function FragmentTypeB (_: FragmentTypeBModel): JSX.Element {
 	return (
-		<div className={classes(css.miniElement, css.typeB)} style={{
-			backgroundColor: _.color
-		}}></div>
+		<div
+		className={classes(css.miniElement, css.typeB)}
+		colorScheme={_.color}
+		></div>
 	)
 }
 
@@ -72,7 +73,7 @@ function randText(): string {
 	var str = ''
 	str += 'a'
 	rangeInt(randomInt(0, 9)).forEach(_ => {
-		str += randomTrue(0.8) ? 'a' : 'nbsp;'
+		str += randomTrue(0.8) ? 'a' : ' '
 	})
 	str += 'a'
 	return str
@@ -84,8 +85,8 @@ function randFragmentModelTypeA (): FragmentTypeAModel {
 	}
 }
 const fragmentTypeBColors = {
-	normal: '#abcdef',
-	highlight: '#efabab'
+	normal: 'normal',
+	highlight: 'highlight'
 }
 
 export interface FragmentFloatingContainerConfig {
