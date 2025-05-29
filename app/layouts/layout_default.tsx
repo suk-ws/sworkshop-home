@@ -1,3 +1,4 @@
+import { JSX } from "react"
 import Footer from "./footer"
 import Header from "./header"
 

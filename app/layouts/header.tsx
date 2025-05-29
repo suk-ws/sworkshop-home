@@ -3,6 +3,7 @@ import css from "./header.module.styl"
 import { FragmentCanvas } from "~/components/fragments";
 import { ClientOnly } from "remix-utils/client-only";
 import { useOrElse } from "~/utils/fp";
+import { JSX } from "react";
 
 export interface HeaderProps {
 	inject?: JSX.Element

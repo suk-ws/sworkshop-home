@@ -1,56 +1,57 @@
 {
-	"name": "sworkshop-home",
-	"description": "Sukazyo Workshop Homepage",
-	"icon": "./public/favicon.ico",
-	"license": "All Rights Reserved",
-	"private": true,
-	"homepage": "https://sukazyo.cc/",
-	"author": "Sukazyo Workshop",
-	"contributors": [
-		{
-			"name": "A.C. Sukazyo Eyre",
-			"email": "sukazyo@outlook.com"
-		}
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/suk-ws/sworkshop-home.git"
-	},
-	"bugs": {
-		"email": "icee@sukazyo.cc",
-		"url": "https://github.com/suk-ws/sworkshop-home/issues"
-	},
-	"type": "module",
-	"sideEffects": false,
-	"scripts": {
-		"build": "remix vite:build",
-		"dev": "remix vite:dev",
-		"start": "remix-serve ./build/server/index.js",
-		"typecheck": "tsc"
-	},
-	"dependencies": {
-		"@remix-run/node": "2.9.1",
-		"@remix-run/react": "2.9.1",
-		"@remix-run/serve": "2.9.1",
-		"isbot": "4.4.0",
-		"react": "18.3.0-canary-c3048aab4-20240326",
-		"react-dom": "18.3.0-canary-c3048aab4-20240326",
-		"react-transition-group": "^4.4.5",
-		"remix-utils": "7.6.0"
-	},
-	"devDependencies": {
-		"@remix-run/dev": "^2.5.0",
-		"@types/react": "^18.2.20",
-		"@types/react-dom": "^18.2.7",
-		"@types/react-transition-group": "^4.4.10",
-		"@types/stylus": "^0.48.42",
-		"stylus": "^0.62.0",
-		"typescript": "^5.1.6",
-		"vite": "^5.0.11",
-		"vite-plugin-stylus-alias-next": "^1.2.1",
-		"vite-tsconfig-paths": "^4.2.3"
-	},
-	"engines": {
-		"node": ">=18.0.0"
-	}
+  "name": "sworkshop-home",
+  "description": "Sukazyo Workshop Homepage",
+  "icon": "./public/favicon.ico",
+  "license": "All Rights Reserved",
+  "private": true,
+  "homepage": "https://sukazyo.cc/",
+  "author": "Sukazyo Workshop",
+  "contributors": [
+    {
+      "name": "A.C. Sukazyo Eyre",
+      "email": "sukazyo@outlook.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suk-ws/sworkshop-home.git"
+  },
+  "bugs": {
+    "email": "icee@sukazyo.cc",
+    "url": "https://github.com/suk-ws/sworkshop-home/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
+    "start": "remix-serve ./build/server/index.js",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@remix-run/node": "2.16.7",
+    "@remix-run/react": "2.16.7",
+    "@remix-run/serve": "2.16.7",
+    "isbot": "4.4.0",
+    "react": "19.2.0-canary-14094f80-20250529",
+    "react-dom": "19.2.0-canary-14094f80-20250529",
+    "react-transition-group": "^4.4.5",
+    "remix-utils": "8.7.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.16.7",
+    "@remix-run/route-config": "2.16.7",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.5",
+    "@types/react-transition-group": "^4.4.12",
+    "@types/stylus": "^0.48.43",
+    "stylus": "0.64.0",
+    "typescript": "^5.8.3",
+    "vite": "6.3.5",
+    "vite-plugin-stylus-alias-next": "1.2.1",
+    "vite-tsconfig-paths": "5.1.4"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
 }

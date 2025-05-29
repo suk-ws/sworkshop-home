@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { JSX } from "react";
 import DefaultLayout from "~/layouts/layout_default";
 import I from "~/utils/I";
 import website from "~/website";

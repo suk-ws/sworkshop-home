@@ -5,6 +5,7 @@ import { FragmentCanvas } from '~/components/fragments'
 import { randomInt } from '~/utils/random'
 import { useOrElse } from '~/utils/fp'
 import { classes } from '~/utils/element'
+import { JSX } from 'react'
 
 export interface FooterProps {
 	useBodyConnector?: boolean

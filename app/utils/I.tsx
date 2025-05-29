@@ -1,7 +1,7 @@
 import './i.stylus'
 import styles from './i.module.stylus'
 
-import { CSSProperties } from 'react'
+import { CSSProperties, JSX } from 'react'
 import { classes } from './element'
 import { _$ } from './fp'
 

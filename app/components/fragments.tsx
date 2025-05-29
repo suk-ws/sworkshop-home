@@ -1,7 +1,7 @@
 import { classes, posXY, useTransitionAppear, useTransitionOf } from "~/utils/element"
 import css from "./fragments.module.styl"
 import { rangeInt } from "~/utils/math"
-import { useRef } from "react"
+import { JSX, useRef } from "react"
 import { as$, _$, useOrElse } from "~/utils/fp"
 import { randomNumber, randomInt, randomTrue } from "~/utils/random"
 import { CSSTransition } from "react-transition-group"
@@ -26,10 +26,11 @@ export interface FragmentTypeBModel {
 }
 
 export function FragmentTypeB (_: FragmentTypeBModel): JSX.Element {
+	const attrs = { "color-scheme": _.color }
 	return (
 		<div
 		className={classes(css.miniElement, css.typeB)}
-		colorScheme={_.color}
+		{ ...attrs }
 		></div>
 	)
 }
