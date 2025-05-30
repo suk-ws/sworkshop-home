@@ -123,7 +123,7 @@ export type IconModel =
 	{ material?: boolean } & MaterialSymbolProps |
 	{ nerd: true } & NerdFontSymbolProps
 
-export default function Icon (props: Omit<IconModel, 'children'> & { [key: string]: any }, context: { slots: Slots } ): JSX.Element {
+export function Icon (props: Omit<IconModel, 'children'> & { [key: string]: any }, context: { slots: Slots } ): JSX.Element {
 	const slotText = (() => {
 		try {
 			const slotContent = context.slots.default?.() as VNode[]
@@ -150,4 +150,6 @@ export default function Icon (props: Omit<IconModel, 'children'> & { [key: strin
 		return <MaterialSymbol {..._} />
 }
 
-Icon.inheritAttrs = true
+export const I = Icon
+export default I
+
