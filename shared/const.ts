@@ -1,1 +1,1 @@
-export const COMING_SOON = true;
+export const COMING_SOON = false;

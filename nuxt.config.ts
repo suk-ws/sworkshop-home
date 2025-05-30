@@ -1,4 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import { readFileSync } from "fs";
+import path from "path";
+import stylusAlias from "vite-plugin-stylus-alias-next";
+
 export default defineNuxtConfig({
 	
 	compatibilityDate: "2025-05-30",
@@ -8,10 +13,30 @@ export default defineNuxtConfig({
 		shim: false, // takeover mode enabled
 		strict: true
 	},
+	
+	vite: {
+		plugins: [
+			stylusAlias()
+		],
+		resolve: {
+			alias: {
+				"~": path.resolve(__dirname, "./"),
+			}
+		},
+		css: {
+			preprocessorOptions: {
+				stylus: {
+					additionalData:
+						readFileSync(path.resolve(__dirname, "./nuxt.config.stylus"), "utf-8")
+						.replaceAll("~", path.resolve(__dirname, "./")),
+				}
+			}
+		}
+	},
+	
 	imports: {
 		scan: false
 	},
-	
 	components: {
 		dirs: []
 	},

@@ -20,22 +20,21 @@ definePageMeta({
 	
 </template>
 
-<style lang="less" scoped>
+<style lang="stylus" scoped>
 
 .intro-no-idea {
 	
-	color: darken(#6885c0, 20);
-	text-align: center;
-	letter-spacing: 0.1em;
+	color darken(#6885c0, 20)
+	text-align center
+	letter-spacing 0.1em
 	
 	&.title {
 		
-		color: #6885c0;
-		font-size: 3em;
+		color #6885c0
+		font-size 3em
 		
-		margin-block-start: 10rem;
-		margin-block-end: 10rem;
-		
+		margin-block-start 10rem
+		margin-block-end 10rem
 		
 	}
 	

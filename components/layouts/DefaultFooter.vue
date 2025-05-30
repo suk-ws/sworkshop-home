@@ -13,12 +13,6 @@ defineProps<{
 			
 			<p class="copy">Copyleft &copy; Sukazyo Workshop 2023</p>
 			
-			<!-- <hr>
-			
-			<p>
-				You are visiting page {{ $route.path }}
-			</p> -->
-			
 		</div>
 	</div>
 	

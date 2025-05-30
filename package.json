@@ -28,17 +28,19 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@types/node": "22.15.26",
-    "typescript": "5.8.3",
-    "vue-tsc": "2.2.10",
     "@nuxt/devtools": "latest",
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@types/node": "22.15.26",
     "@vueuse/core": "13.3.0",
     "@vueuse/motion": "3.0.3",
     "@vueuse/nuxt": "13.3.0",
     "less": "^4.3.0",
     "nuxt": "^3.17.4",
+    "stylus": "^0.64.0",
+    "typescript": "5.8.3",
+    "vite-plugin-stylus-alias-next": "^1.2.2-beta.1",
     "vue": "3.5.16",
-    "vue-router": "4.5.1"
+    "vue-router": "4.5.1",
+    "vue-tsc": "2.2.10"
   }
 }

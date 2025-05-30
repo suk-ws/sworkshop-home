@@ -20,12 +20,12 @@ import DefaultTitle from '~/components/layouts/DefaultTitle.vue';
 	
 </template>
 
-<style lang="less" scoped>
+<style lang="stylus" scoped>
 
 .coming-soon-layout {
 	
-	width: 100%;
-	height: 100%;
+	width 100%
+	height 100%
 	
 }
 
