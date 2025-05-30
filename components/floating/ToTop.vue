@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import I from '../I.vue';
+import I from '../utils/icon/I';
 
 
 defineProps<{
