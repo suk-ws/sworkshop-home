@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import ToTop from '~/components/floating/ToTop.vue';
-import DefaultFooter from '~/components/layouts/DefaultFooter.vue';
-import DefaultTitle from '~/components/layouts/DefaultTitle.vue';
+import DefaultFooter from '~/layouts/parts/DefaultFooter.vue';
+import DefaultTitle from '~/layouts/parts/title/DefaultTitle.vue';
 
 
 const is_show_toTop = ref(false)

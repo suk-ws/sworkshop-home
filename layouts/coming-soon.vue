@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import DefaultFooter from '~/components/layouts/DefaultFooter.vue';
-import DefaultTitle from '~/components/layouts/DefaultTitle.vue';
+import DefaultFooter from '~/layouts/parts/DefaultFooter.vue';
+import DefaultTitle from '~/layouts/parts/title/DefaultTitle.vue';
 
 </script>
 
@@ -14,7 +14,6 @@ import DefaultTitle from '~/components/layouts/DefaultTitle.vue';
 		</DefaultTitle>
 		
 		<slot></slot>
-		
 		
 	</div>
 	
