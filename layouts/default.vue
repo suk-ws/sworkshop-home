@@ -1,5 +1,10 @@
 <script setup lang="ts">
 
+import ToTop from '~/components/floating/ToTop.vue';
+import DefaultFooter from '~/components/layouts/DefaultFooter.vue';
+import DefaultTitle from '~/components/layouts/DefaultTitle.vue';
+
+
 const is_show_toTop = ref(false)
 function is_show_toTop_set (new_val: boolean) { is_show_toTop.value = new_val }
 
@@ -9,13 +14,13 @@ function is_show_toTop_set (new_val: boolean) { is_show_toTop.value = new_val }
 	
 	<div class="default-layout">
 		
-		<LayoutsDefaultTitle @anchor-visible-change="new_val => is_show_toTop_set(!new_val)" ></LayoutsDefaultTitle>
+		<DefaultTitle @anchor-visible-change="new_val => is_show_toTop_set(!new_val)" ></DefaultTitle>
 		
 		<slot></slot>
 		
-		<LayoutsDefaultFooter></LayoutsDefaultFooter>
+		<DefaultFooter></DefaultFooter>
 		
-		<FloatingToTop :show="is_show_toTop"></FloatingToTop>
+		<ToTop :show="is_show_toTop"></ToTop>
 		
 	</div>
 	

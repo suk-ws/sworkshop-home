@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { StyleValue } from 'nuxt/dist/app/compat/capi';
+
+import type { StyleValue } from 'vue';
+
 
 const props = withDefaults(defineProps<{
 	fill?: boolean,
@@ -27,7 +29,7 @@ const style = computed<StyleValue>(() => { return {
 
 <style>
 
-@import "~/assets/css/symbols.less";
+@import "~/assets/css/fonts/symbols.less";
 
 .material-symbols {
 	user-select: none;

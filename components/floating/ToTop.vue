@@ -1,5 +1,8 @@
 <script setup lang="ts">
 
+import I from '../I.vue';
+
+
 defineProps<{
 	show: Boolean
 }>()

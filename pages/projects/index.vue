@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import Article from '~/components/page/Article.vue';
+
 </script>
 
 <template>
 	
-	<PageArticle>
+	<Article>
 		
 		<h1>Projects</h1>
 		
-	</PageArticle>
+	</Article>
 	
 </template>

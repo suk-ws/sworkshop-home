@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { trueOrUndef } from '~/utils/math';
+
 
 export interface TypeA_Model {
 	html: string

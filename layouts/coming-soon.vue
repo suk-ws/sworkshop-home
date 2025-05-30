@@ -1,10 +1,17 @@
+<script setup lang="ts">
+
+import DefaultFooter from '~/components/layouts/DefaultFooter.vue';
+import DefaultTitle from '~/components/layouts/DefaultTitle.vue';
+
+</script>
+
 <template>
 	
 	<div class="coming-soon-layout">
 		
-		<LayoutsDefaultTitle>
-			<template #nav><LayoutsDefaultFooter in-title></LayoutsDefaultFooter></template>
-		</LayoutsDefaultTitle>
+		<DefaultTitle>
+			<template #nav><DefaultFooter in-title></DefaultFooter></template>
+		</DefaultTitle>
 		
 		<slot></slot>
 		

@@ -1,14 +1,22 @@
 <script setup lang="ts">
+
+import Article from '~/components/page/Article.vue';
+import { COMING_SOON } from '~/shared/const';
+
+definePageMeta({
+	layout: COMING_SOON ? 'coming-soon' : 'default'
+})
+
 </script>
 
 <template>
 	
-	<PageArticle>
+	<Article v-if="!COMING_SOON">
 		
 		<div v-motion-slide-visible-once-bottom class="intro-no-idea title">I have really no idea what to put here...</div>
 		<div v-motion-slide-visible-once-bottom class="intro-no-idea">this page is still empty.</div>
 		
-	</PageArticle>
+	</Article>
 	
 </template>
 

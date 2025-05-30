@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import { ModelPublic } from 'components/mini-elements/Public.vue';
-import { StyleValue } from 'nuxt/dist/app/compat/vue-demi';
 
 import { useElementVisibility } from '@vueuse/core';
-
+import { randomInt, randomTrue } from '~/utils/random';
+import { rangeInt } from '~/utils/range';
+import type { ModelPublic } from '../mini-elements/MiniElements.vue';
+import type { StyleValue } from 'vue';
+import MiniElements from '../mini-elements/MiniElements.vue';
+import NavItem from './title-nav/NavItem.vue';
+import Anchor from '../Anchor.vue';
+import { COMING_SOON } from '~/shared/const';
 
 function genRandomStyle () {
 	return {
 		top: `${Math.random()*100}%`,
 		left: `${Math.random()*100}%`,
-		// transform: `rotate(${Math.random()*360}deg)`
+		transform: `rotate(${Math.random()*360}deg)`
 	}
 }
 function genRandomText (): string {
@@ -22,10 +27,11 @@ function genRandomText (): string {
 	return str;
 }
 
-type ModelPublicPositioned = ModelPublic & {
+type ModelPublicPositioned = {
 	position: StyleValue
+	model: ModelPublic
 }
-const miniElements_Models = ref<Array<ModelPublicPositioned>>([]);
+const miniElements_Models = ref<ModelPublicPositioned[]>([]);
 
 function update_miniElements () {
 	miniElements_Models.value = []
@@ -33,28 +39,34 @@ function update_miniElements () {
 		// @ts-ignore
 		miniElements_Models.value.push({
 			position: genRandomStyle(),
-			type: 'a',
 			model: {
-				html: genRandomText(),
-				useIndictor: randomTrue(0.7)
+				type: 'a',
+				model: {
+					html: genRandomText(),
+					useIndictor: randomTrue(0.7)
+				}
 			}
 		})
 	}
 	for ({} of rangeInt(2)) {
 		miniElements_Models.value.push({
 			position: genRandomStyle(),
-			type: 'b',
 			model: {
-				color: '#abcdef'
+				type: 'b',
+				model: {
+					color: '#abcdef'
+				}
 			}
 		})
 	}
 	for ({} of rangeInt(1)) {
 		miniElements_Models.value.push({
 			position: genRandomStyle(),
-			type: 'b',
 			model: {
-				color: '#efabab'
+				type: 'b',
+				model: {
+					color: '#efabab'
+				}
 			}
 		})
 	}
@@ -82,20 +94,20 @@ watch(v_anchor_visible, (new_val) => { emits('anchorVisibleChange', new_val) })
 		
 		<div class="background">
 			<ClientOnly>
-				<template v-for="model of miniElements_Models"><Transition name="mini-float-item" appear><MiniElementsPublic
+				<template v-for="model of miniElements_Models"><Transition name="mini-float-item" appear><MiniElements
 					class="mini-float-item"
 					:style="model.position"
-					:type="model.type"
-					:model="model.model"
-				></MiniElementsPublic></Transition></template>
+					v-bind="model.model"
+				></MiniElements></Transition></template>
 			</ClientOnly>
 		</div>
 		
 		<div class="foreground">
 			
 			<div class="area-title">
-				<div class="description"><span>the Sukazyos and theirs -</span></div>
+				<div v-if="!COMING_SOON" class="description"><span>the Sukazyos and theirs -</span></div>
 				<div class="title"><span>Sukazyo Workshop</span></div>
+				<div v-if="COMING_SOON" class="description"><span>coming soon...</span></div>
 			</div>
 			
 			<Anchor uid="_page-start" ref="v_anchor"></Anchor>
@@ -103,10 +115,10 @@ watch(v_anchor_visible, (new_val) => { emits('anchorVisibleChange', new_val) })
 				<div class="nav">
 					
 					<nav class="nav-bar">
-						<LayoutsTitleNavItem to="/" class="root" no-active><img src="/favicon.ico" /></LayoutsTitleNavItem>
-						<LayoutsTitleNavItem to="/members">Members</LayoutsTitleNavItem>
-						<LayoutsTitleNavItem to="/projects">Projects</LayoutsTitleNavItem>
-						<LayoutsTitleNavItem to="/services">Services</LayoutsTitleNavItem>
+						<NavItem to="/" class="root" no-active><img src="/favicon.ico" /></NavItem>
+						<NavItem to="/members">Members</NavItem>
+						<NavItem to="/projects">Projects</NavItem>
+						<NavItem to="/services">Services</NavItem>
 					</nav>
 					
 				</div>
