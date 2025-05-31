@@ -3,6 +3,7 @@
 import RandomParticlesPanel from '~/components/particles/RandomParticlesPanel.vue';
 import I from '~/components/utils/icon/I';
 import { randomInt } from '~/utils/random';
+import { vueBool} from '~/utils/vue';
 
 
 defineProps<{
@@ -67,7 +68,7 @@ const ExtUrl = createReusableTemplate<{
 				<ExtUrl.define v-slot="{ $slots, href, icon, deprecated }">
 					<a target="_blank" :href="href" class="ext-url">
 						<I nerd>{{ icon }}</I>
-						<span v-if="deprecated"><del><component :is="$slots.default" /></del></span>
+						<span v-if="vueBool(deprecated)"><del><component :is="$slots.default" /></del></span>
 						<span v-else><component :is="$slots.default" /></span>
 					</a>
 				</ExtUrl.define>
@@ -75,8 +76,8 @@ const ExtUrl = createReusableTemplate<{
 				<ExtUrl.reuse href="https://github.com/suk-ws" icon="nf-md-github">GitHub Home</ExtUrl.reuse>
 				<ExtUrl.reuse href="https://github.com/suk-ws/sworkshop-home" icon="nf-md-git">This Website</ExtUrl.reuse>
 				<ExtUrl.reuse href="https://book.sukazyo.cc" icon="nf-fa-book">Workshop Documentation</ExtUrl.reuse>
-				<ExtUrl.reuse href="https://twitter.com/_suk_ws" icon="nf-fa-twitter_square" deprecated>Twitter (or x.com?)</ExtUrl.reuse>
-				<ExtUrl.reuse href="https://a.sukazyo.cc/@workshop" icon="nf-md-mastodon" deprecated>Fediverse (Mastodon/Misskey)</ExtUrl.reuse>
+				<ExtUrl.reuse href="https://twitter.com/_suk_ws" icon="nf-fa-twitter_square">Twitter (or x.com?)</ExtUrl.reuse>
+				<!-- <ExtUrl.reuse href="https://a.sukazyo.cc/@workshop" icon="nf-md-mastodon" deprecated>Fediverse (Mastodon/Misskey)</ExtUrl.reuse> -->
 				<ExtUrl.reuse href="https://bsky.app/profile/did:plc:b5mw7kbav3jzkt7qefvbdc7b" icon="nf-fae-butterfly">Official Bluesky</ExtUrl.reuse>
 				
 			</div>
