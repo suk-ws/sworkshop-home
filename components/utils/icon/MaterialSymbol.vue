@@ -71,17 +71,10 @@ const inheritMode = computed<boolean>(() => !props.defaults)
 // use Google Material Symbols (Rounded)
 // @see https://fonts.google.com/icons
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200")
+@import "./icon-public"
 
 .material-symbols
-	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 !important
-
-.inherit-mode
-	font-weight inherit
-	font-style inherit
-	font-size inherit
-	font-variant inherit
-	line-height inherit
-	letter-spacing inherit
-	text-transform inherit
+	font-variation-settings: 'FILL' v-bind(fill), 'wght' v-bind(weight), 'GRAD' v-bind(grade), 'opsz' v-bind(optical)
+	inherit-support()
 
 </style>

@@ -1,129 +1,15 @@
-import './i.stylus'
-import styles from './i.module.stylus'
-
-import type { JSX } from 'vue/jsx-runtime'
-import type { CSSProperties, Slots } from 'vue'
-
-interface MaterialSymbolProps {
-	/**
-	 * The name or ID of the symbol/icon.
-	 * 
-	 * For now, icon name like `star` is accepted. The code point like `0xe834` is not
-	 * supported yet.
-	 */
-	children: string
-	/**
-	 * If the icon will be filled.
-	 * 
-	 * accepted a number within `0`-`1`. digitals within `0`-`1` like `0.5` is also
-	 * supported that can make animations.
-	 * 
-	 * For more informations, see https://fonts.google.com/icons
-	 */
-	fill?: number
-	/**
-	 * Icon's stroke weight of the icon.
-	 * 
-	 * For more informations, see https://fonts.google.com/icons
-	 */
-	weight?: number
-	/**
-	 * Grade affect a symbol's thickness.
-	 * 
-	 * For more informations, see https://fonts.google.com/icons
-	 */
-	grade?: number
-	/**
-	 * Optical Size offers a way to automatically adjust the stroke weight when you
-	 * increase or decrease the symbol size.
-	 * 
-	 * For more informations, see https://fonts.google.com/icons
-	 */
-	optical?: number
-	/**
-	 * If the icon should use Material Symbols default preset font-size line-height etc.
-	 * 
-	 * The default behavor of this component is no -- means this icons font-size and
-	 * line-height etc will use the inherited value.
-	 * 
-	 * The default behavor of the Material Symbols library is yes. Set it to `true` to
-	 * use this behavor.
-	 */
-	defaults?: boolean
-}
-
-/**
- * MaterialSymbol Component gives a easy way to use [Material Symbols]{https://fonts.google.com/icons}.
- * 
- * For now, the only supported version is Material Symbols (Rounded).
- */
-export function MaterialSymbol (_: MaterialSymbolProps) {
-	
-	const type = 'rounded'
-	const clazz = 'material-symbols-' + type
-	const inherit_mode = !_.defaults
-	
-	const variables = (_.fill || _.grade || _.optical || _.weight) ? {
-		fill: _.fill || 0,
-		weight: _.weight || 400,
-		grade: _.grade || 0,
-		optical: _.optical || 24
-	} : null
-	const style: CSSProperties|undefined = variables ? {
-		fontVariationSettings: `
-			'FILL' ${variables.fill},
-			'wght' ${variables.weight},
-			'GRAD' ${variables.grade},
-			'opsz' ${variables.optical}
-		`
-	} : undefined
-	
-	return <span
-		class={["material-symbols", clazz, inherit_mode?styles['inherit-mode']:'']}
-		style={style}
-	>{_.children}</span>
-	
-}
-
-export interface NerdFontSymbolProps {
-	/**
-	 * The name of the symbol/icon.
-	 * 
-	 * Can be class/name prefixed with `nf-` or nor. Cannot be icon itself or
-	 * icon's UTF code.
-	 */
-	children: string
-	/**
-	 * If the icon should use Nerd Font Webfont default preset font-size line-height etc.
-	 * 
-	 * The default behavor of this component is no -- means this icons font-size and
-	 * line-height etc will use the inherited value.
-	 * 
-	 * The default behavor of the Material Symbols library is yes. Set it to `true` to
-	 * use this behavor.
-	 */
-	defaults?: boolean
-}
-export function NerdFontSymbol (_: NerdFontSymbolProps) {
-	
-	const symbolName = (() => {
-		if (_.children.startsWith('nf-'))
-			return _.children.substring('nf-'.length)
-		else return _.children
-	})()
-	const inherit_mode = !_.defaults
-	
-	return <span
-		class={['nf', 'nerd-font', 'nf-'+symbolName, inherit_mode?styles['inherit-mode']:'']}
-	/>
-	
-}
+import type { Slots } from "vue"
+import type { MaterialSymbolProps } from "./MaterialSymbol.vue"
+import type { NFProps } from "./NFIcon.vue"
+import type { JSX } from "vue/jsx-runtime"
+import NFIcon from "./NFIcon.vue"
+import MaterialSymbol from "./MaterialSymbol.vue"
 
 export type IconModel =
 	{ material?: boolean } & MaterialSymbolProps |
-	{ nerd: true } & NerdFontSymbolProps
+	{ nerd: true } & NFProps
 
-export function Icon (props: Omit<IconModel, 'children'> & { [key: string]: any }, context: { slots: Slots } ): JSX.Element {
+export function Icon (props: Omit<IconModel, 'icon'> & { [key: string]: any }, context: { slots: Slots } ): JSX.Element {
 	const slotText = (() => {
 		try {
 			const slotContent = context.slots.default?.() as VNode[]
@@ -142,10 +28,10 @@ export function Icon (props: Omit<IconModel, 'children'> & { [key: string]: any 
 	})()
 	const _ = {
 		...props,
-		children: slotText
+		icon: slotText
 	}
 	if ('nerd' in _)
-		return <NerdFontSymbol {..._} />
+		return <NFIcon {..._} />
 	else
 		return <MaterialSymbol {..._} />
 }

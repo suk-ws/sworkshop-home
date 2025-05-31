@@ -46,14 +46,9 @@ const inherit_mode = computed(() => !props.defaults)
 // use Nerd Font (Symbols Only)
 // @see https://www.nerdfonts.com/cheat-sheet
 @import url("https://www.nerdfonts.com/assets/css/webfont.css")
+@import "./icon-public"
 
-.inherit-mode
-	font-weight inherit
-	font-style inherit
-	font-size inherit
-	font-variant inherit
-	line-height inherit
-	letter-spacing inherit
-	text-transform inherit
+.nf.nerd-font
+	inherit-support()
 
 </style>
