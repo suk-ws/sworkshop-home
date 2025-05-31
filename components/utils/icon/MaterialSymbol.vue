@@ -62,7 +62,7 @@ const inheritMode = computed<boolean>(() => !props.defaults)
 
 <template>
 	
-	<span :class="['material-symbols', `material-symbols-${type}`, {'inherit-mode': inheritMode}]">{{ props.icon }}</span>
+	<span :class="['icon', 'material-symbols', `material-symbols-${type}`, {'inherit-mode': inheritMode}]">{{ props.icon }}</span>
 	
 </template>
 
@@ -75,6 +75,8 @@ const inheritMode = computed<boolean>(() => !props.defaults)
 
 .material-symbols
 	font-variation-settings: 'FILL' v-bind(fill), 'wght' v-bind(weight), 'GRAD' v-bind(grade), 'opsz' v-bind(optical)
+	vertical-align text-bottom
 	inherit-support()
+	font-size 1.1em !important
 
 </style>

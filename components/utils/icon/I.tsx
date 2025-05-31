@@ -39,3 +39,19 @@ export function Icon (props: Omit<IconModel, 'icon'> & { [key: string]: any }, c
 export const I = Icon
 export default I
 
+export type IconDefinition = IconModel | string | JSX.Element
+
+export function IconFrom (props: {i: IconDefinition}): JSX.Element {
+	if (typeof props.i === 'string') {
+		if (props.i.startsWith('nf-')) {
+			return <NFIcon icon={props.i} />
+		} else {
+			return <I>{props.i}</I>
+		}
+	} else if ('type' in props.i) {
+		// return <RenderNode is={props.i} />
+		return props.i
+	} else {
+		return <I {...props.i}>{props.i.icon}</I>
+	}
+}

@@ -1,3 +1,5 @@
+import type { JSX } from "vue/jsx-runtime";
+
 export function vueBool (value: boolean | undefined | string): boolean {
 	if (value === undefined) {
 		return false;
@@ -7,3 +9,5 @@ export function vueBool (value: boolean | undefined | string): boolean {
 	}
 	return value;
 }
+
+export type VueNode = string | JSX.Element

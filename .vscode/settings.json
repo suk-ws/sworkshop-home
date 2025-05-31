@@ -2,13 +2,20 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"iis.configDir": "",
 	"explorer.fileNesting.patterns": {
-		"*.vue": "${capture}.js, ${capture}.ts, ${capture}.jsx, ${capture}.tsx"
+		"*.ts": "${capture}.js, ${capture}.d.ts, ${capture}.styl, ${capture}.stylus, ${capture}.module.css, ${capture}.module.styl, ${capture}.module.stylus",
+		"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.styl, ${capture}.stylus, ${capture}.module.css, ${capture}.module.styl, ${capture}.module.stylus",
+		"*.jsx": "${capture}.js, ${capture}.styl, ${capture}.stylus, ${capture}.module.css, ${capture}.module.styl, ${capture}.module.stylus",
+		"*.tsx": "${capture}.js, ${capture}.ts, ${capture}.css, ${capture}.styl, ${capture}.stylus, ${capture}.module.css, ${capture}.module.styl, ${capture}.module.stylus",
+		"*.vue": "${capture}.js, ${capture}.ts, ${capture}.jsx, ${capture}.tsx, ${capture}.styl, ${capture}.stylus, ${capture}.module.css, ${capture}.module.styl, ${capture}.module.stylus",
+		"tsconfig.json": "tsconfig.*.json",
+		"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
 	},
 	"files.exclude": {
 		"**/node_modules": true,
 		"dist": true
 	},
 	"cSpell.words": [
+		"idiv",
 		"Nuxt",
 		"vueuse"
 	],

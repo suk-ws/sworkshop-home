@@ -1,5 +1,6 @@
 <script setup lang="tsx">
 
+import Badge from '~/components/page/widgets/Badge.vue';
 import RandomParticlesPanel from '~/components/particles/RandomParticlesPanel.vue';
 import I from '~/components/utils/icon/I';
 import { randomInt } from '~/utils/random';
@@ -60,7 +61,16 @@ const ExtUrl = createReusableTemplate<{
 		<div class="message-box" :class="{ 'in-title': inTitle }">
 			<div class="messages">
 				<p>Copyright © 2023-2025 Sukazyo Workshop, and its affiliates.</p>
-				<p>Made with <I :fill=1>breakfast_dining</I> and <I :fill=1>favorite</I></p>
+				<p>Made with <I :fill=1>breakfast_dining</I> and <I :fill=1>favorite</I>, never any AI generated code used!</p>
+				<p class="space" />
+				<p class="badges">
+					<Badge :icon="{icon:'breakfast_dining',fill:1}" name="BreadCard UI" value="by Sukazyo Workshop" />
+					<!-- <Badge icon="nf-md-vuejs" name="Vue" value="3.5" />
+					<Badge icon="nf-md-nuxt" name="Nuxt" value="3.17" />
+					<Badge icon="nf-dev-stylus" name="Stylus" value="0.64" />
+					<Badge icon="nf-fa-face_smile" name="NerdFont Icons" value="webfont" />
+					<Badge icon="nf-md-material_design" name="Material Symbols" value="Rounded" /> -->
+				</p>
 			</div>
 			<div class="separator"></div>
 			<div class="ext-urls">
@@ -155,6 +165,16 @@ const ExtUrl = createReusableTemplate<{
 		clear-pad()
 	> .messages
 		flex 1 1 0
+		use-flex column
+		> .space
+			flex 1 1 0
+		> .badges
+			font-size 0.7rem
+			display flex
+			flex-wrap wrap
+			gap 0.6em
+			> .tag.tag-badge
+				font-size inherit
 	> .ext-urls
 		flex 0 0 auto
 	> .separator

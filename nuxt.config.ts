@@ -31,7 +31,7 @@ export default defineNuxtConfig({
 						.replaceAll("~", path.resolve(__dirname, "./")),
 				}
 			}
-		}
+		},
 	},
 	
 	imports: {
@@ -48,6 +48,13 @@ export default defineNuxtConfig({
 	
 	app: {
 		
+		rootAttrs: {
+			id: "document",
+		},
+		teleportAttrs: {
+			id: "overlay",
+		},
+		
 		head: {
 			
 			charset: "utf-8",
@@ -55,6 +62,14 @@ export default defineNuxtConfig({
 			
 		}
 		
+	},
+	
+	vue: {
+		compilerOptions: {
+			isCustomElement: (tag) => {
+				return ["idiv"].includes(tag)
+			}
+		}
 	}
 	
 })

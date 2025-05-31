@@ -21,7 +21,7 @@ html {
 
 html,
 body,
-#__nuxt {
+#document {
 	
 	min-width: 100%;
 	min-height: 100%;
@@ -32,7 +32,7 @@ body,
 	
 }
 
-#__nuxt::before {
+#document::before {
 	content: "";
 	display: flex;
 }
