@@ -1,6 +1,8 @@
 <script setup lang="tsx">
 
+import RandomParticlesPanel from '~/components/particles/RandomParticlesPanel.vue';
 import I from '~/components/utils/icon/I';
+import { randomInt } from '~/utils/random';
 
 
 defineProps<{
@@ -54,9 +56,9 @@ const ExtUrl = createReusableTemplate<{
 		
 		<!-- <div v-if="false" class="footerBodyConnector" /> -->
 		
-		<div class="message-box">
+		<div class="message-box" :class="{ 'in-title': inTitle }">
 			<div class="messages">
-				<p>Copyright © 2023-2024 Sukazyo Workshop, and its affiliates.</p>
+				<p>Copyright © 2023-2025 Sukazyo Workshop, and its affiliates.</p>
 				<p>Made with <I :fill=1>breakfast_dining</I> and <I :fill=1>favorite</I></p>
 			</div>
 			<div class="separator"></div>
@@ -80,6 +82,16 @@ const ExtUrl = createReusableTemplate<{
 			</div>
 		</div>
 		
+		<div class="background">
+			<ClientOnly><RandomParticlesPanel :config="{
+				labelType: { count: randomInt(1, 2) },
+				blockType: { counts: {
+						normal: randomInt(1, 2),
+						highlight: randomInt(0, 1)
+				}}
+			}" /></ClientOnly>
+		</div>
+		
 	</div>
 	
 	
@@ -89,6 +101,7 @@ const ExtUrl = createReusableTemplate<{
 <style lang="stylus" scoped>
 
 .footer
+	position relative
 	use-flex column
 	&.in-title
 		> .box
@@ -122,12 +135,15 @@ const ExtUrl = createReusableTemplate<{
 	padding 1.5em 3em
 	min-height 5rem
 	border-radius 0.5em
-	background-color #e6ebf1
+	background-color #e6ebf1cb
+	&:hover, &.in-title
+		background-color #e6ebf1ff
 	font-size 0.8rem
 	color #76787a
 	+dark-mode()
 		background-color #3b3938
 		color #bdbcbc
+	transition background-color 200ms
 	
 	use-flex row
 	+onMediaThin()
@@ -175,5 +191,10 @@ const ExtUrl = createReusableTemplate<{
 		align-items center
 		
 	
+
+.background
+	position absolute
+	pos 0
+	overflow hidden
 
 </style>

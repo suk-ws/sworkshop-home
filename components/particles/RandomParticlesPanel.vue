@@ -3,9 +3,9 @@
 import type { StyleValue } from 'vue';
 import { randomInt, randomTrue } from '~/utils/random';
 import { rangeInt } from '~/utils/range';
+import type { PartialDeep } from "type-fest"
 import Particle, { type ParticleModels } from './Particle.vue';
 import { _$ } from '~/utils/fp';
-
 
 interface ParticleDrawConfig {
 	labelType: {
@@ -20,7 +20,7 @@ interface ParticleDrawConfig {
 	}
 }
 
-function getParticleDrawConfig (config?: ParticleDrawConfig|number|undefined): ParticleDrawConfig {
+function getParticleDrawConfig (config?: PartialDeep<ParticleDrawConfig>|number|undefined): ParticleDrawConfig {
 	if (typeof config !== 'object') {
 		const multiplier = config || 1;
 		return {
@@ -36,8 +36,34 @@ function getParticleDrawConfig (config?: ParticleDrawConfig|number|undefined): P
 			}
 		}
 	} else {
-		return config
+		return Object.assign(
+			{},
+			getParticleDrawConfig(), // default config as base
+			config
+		)
 	}
+}
+
+type ParticleModelPositioned = {
+	position: StyleValue
+	model: ParticleModels
+}
+
+function genRandomStyle () {
+	return {
+		top: `${Math.random()*100}%`,
+		left: `${Math.random()*100}%`,
+		transform: `rotate(${Math.random()*360}deg)`
+	}
+}
+function genRandomText (): string {
+	var str: string = ""
+	str += 'a';
+	for (const {} of rangeInt(randomInt(0, 9))) {
+		str += Math.random() > 0.8 ? '&nbsp;' : 'a'
+	}
+	str += 'a';
+	return str;
 }
 
 function generateParticleModels (config: ParticleDrawConfig): ParticleModelPositioned[] {
@@ -80,31 +106,16 @@ function generateParticleModels (config: ParticleDrawConfig): ParticleModelPosit
 	return models;
 }
 
-function genRandomStyle () {
-	return {
-		top: `${Math.random()*100}%`,
-		left: `${Math.random()*100}%`,
-		transform: `rotate(${Math.random()*360}deg)`
-	}
-}
-function genRandomText (): string {
-	var str: string = ""
-	str += 'a';
-	for (const {} of rangeInt(randomInt(0, 9))) {
-		str += Math.random() > 0.8 ? '&nbsp;' : 'a'
-	}
-	str += 'a';
-	return str;
-}
+///----------------
 
-type ParticleModelPositioned = {
-	position: StyleValue
-	model: ParticleModels
-}
+const props = defineProps<{
+	config?: PartialDeep<ParticleDrawConfig>|number
+}>();
+
 const miniElements_Models = ref<ParticleModelPositioned[]>([]);
 
 function update_miniElements () {
-	miniElements_Models.value = generateParticleModels(getParticleDrawConfig())
+	miniElements_Models.value = generateParticleModels(getParticleDrawConfig(props.config))
 }
 onMounted(() => {
 	update_miniElements();
@@ -126,6 +137,7 @@ onMounted(() => {
 
 .particle-box {
 	position absolute
+	overflow visible
 	opacity 0.5
 	z-index -1
 }
