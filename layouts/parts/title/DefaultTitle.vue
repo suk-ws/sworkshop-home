@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import { useElementVisibility } from '@vueuse/core';
-import Anchor from '../../../components/Anchor.vue';
-import Fragments from './Fragments.vue';
+import Anchor from '~/components/Anchor.vue';
+import Fragments from '~/components/particles/RandomParticlesPanel.vue';
 import TitleTexts from './TitleTexts.vue';
 import NavBar from './nav/NavBar.vue';
 
