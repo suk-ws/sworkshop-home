@@ -10,21 +10,13 @@ const props = defineProps<{
 	value?: VueNode
 }>()
 
-const iconMaybeImage = computed(() => {
-	if (props.icon && typeof props.icon === 'string') {
-		return !props.icon.match(/[0-9a-zA-Z_-]*/);
-	}
-	return false;
-})
-
 </script>
 
 <template>
 	
 	<idiv class="tag tag-badge">
 		<idiv class="part titles" v-if="icon || name">
-			<IconFrom class="icon" v-if="icon && !iconMaybeImage" :i="icon" />
-			<img class="icon img" v-else-if="icon && iconMaybeImage && typeof icon === 'string'" :src="icon" />
+			<IconFrom class="icon" v-if="icon" :i="icon" />
 			<span v-if="name" class="name">
 				<RenderNode :is="name" />
 			</span>
@@ -73,11 +65,6 @@ const iconMaybeImage = computed(() => {
 				
 				&:not(:last-child) {
 					margin-inline-end: 0.35em;
-				}
-				
-				&.img {
-					max-width: 1em;
-					max-height: 1em;
 				}
 				
 			}

@@ -4,13 +4,18 @@ import type { NFProps } from "./NFIcon.vue"
 import type { JSX } from "vue/jsx-runtime"
 import NFIcon from "./NFIcon.vue"
 import MaterialSymbol from "./MaterialSymbol.vue"
+import ImgIcon, { type ImgIconProps } from "./ImgIcon.vue"
 
 export type IconModel =
 	{ material?: boolean } & MaterialSymbolProps |
-	{ nerd: true } & NFProps
+	{ nerd: true } & NFProps |
+	{ img: true } & ImgIconProps
 
-export function Icon (props: Omit<IconModel, 'icon'> & { [key: string]: any }, context: { slots: Slots } ): JSX.Element {
+export function Icon (props: Omit<IconModel, 'icon'> & { icon?: string, [key: string]: any }, context: { slots: Slots } ): JSX.Element {
 	const slotText = (() => {
+		if ('icon' in props && typeof props.icon == 'string') {
+			return props.icon
+		}
 		try {
 			const slotContent = context.slots.default?.() as VNode[]
 			if (slotContent && slotContent.length > 0) {
@@ -32,6 +37,8 @@ export function Icon (props: Omit<IconModel, 'icon'> & { [key: string]: any }, c
 	}
 	if ('nerd' in _)
 		return <NFIcon {..._} />
+	else if ('img' in _)
+		return <ImgIcon {..._} />
 	else
 		return <MaterialSymbol {..._} />
 }
@@ -43,7 +50,9 @@ export type IconDefinition = IconModel | string | JSX.Element
 
 export function IconFrom (props: {i: IconDefinition}): JSX.Element {
 	if (typeof props.i === 'string') {
-		if (props.i.startsWith('nf-')) {
+		if (!props.i.match(/^[0-9a-zA-Z_-]*$/)) {
+			return <ImgIcon src={props.i} {...props} />
+		} else if (props.i.startsWith('nf-')) {
 			return <NFIcon icon={props.i} />
 		} else {
 			return <I>{props.i}</I>
@@ -52,6 +61,6 @@ export function IconFrom (props: {i: IconDefinition}): JSX.Element {
 		// return <RenderNode is={props.i} />
 		return props.i
 	} else {
-		return <I {...props.i}>{props.i.icon}</I>
+		return <I {...props.i} />
 	}
 }
