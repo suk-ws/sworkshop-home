@@ -13,6 +13,10 @@ import { COMING_SOON } from '~/shared/const';
 
 <style lang="stylus" scoped>
 
+* {
+	text-align center
+}
+
 .title {
 	font-size 56px
 	font-weight bold
